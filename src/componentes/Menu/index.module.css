@@ -29,6 +29,15 @@
     font-size: 16px;
 }
 
+.link{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: aqua;
+}
+
 .searchItens {
     position: relative;
 }
@@ -48,7 +57,7 @@ input::placeholder{
 .searchIcon{
     position: absolute;
     left: 6px;
-    top: 4px;
+    top: 5px;
 }
 
 @media screen and (max-width: 520px) {
