@@ -1,11 +1,13 @@
-import Menu from "./componentes/Menu"
-
+import { Routes, Route } from 'react-router-dom'
+import Posts from "./pages/posts"
+import Users from './pages/users'
 
 function App() {
   return (
-    <div>
-      <Menu></Menu>
-    </div>
+    <Routes>
+      <Route path="/" element = {<Posts/>}/>
+      <Route path="/users" element = {<Users/>}/>
+    </Routes>
   )
 }
 
