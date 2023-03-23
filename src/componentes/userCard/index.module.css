@@ -44,9 +44,32 @@
     flex-direction: column;
     gap: 20px;
     font-family: 'Poppins', sans-serif;
+    font-size: 14px;
 }
 
 .answers{
     font-weight: 600;
     color: #616FD0;
+}
+
+@media screen and (max-width: 864px){
+    .container span{
+        display: block;
+    }
+
+    .nameCity h3{
+        font-size: 22px;
+    }
+
+    .nameCity span{
+        font-size: 12px;
+    }
+
+    .nameCity{
+        margin: 8px 0;
+    }
+
+    .lastInfos{
+        gap: 5px;
+    }
 }

@@ -10,3 +10,15 @@
     text-align: center;
     margin: 16px 0;
 }
+
+@media screen and (max-width: 842px) {
+    .cardUsers{
+        grid-template-columns: repeat(2, 0.3fr);
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .cardUsers{
+        grid-template-columns: repeat(1, 0.3fr);
+    }
+}
