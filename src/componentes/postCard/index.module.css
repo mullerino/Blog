@@ -6,8 +6,9 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 16px;
+    margin: 32px 16px;
     border-radius: 8px;
+    background-color: rgba(233, 233, 240, 0.1);
 }
 
 .container:hover{
@@ -69,6 +70,14 @@
     .container{
         min-height: 120px;
         width: 320px;
-        margin: 16px 4px;
+        margin: 24px 4px;
+    }
+}
+
+@media screen and (max-width: 508px) {
+    .container{
+        min-height: 110px;
+        width: 300px;
+        margin: 24px 4px;
     }
 }
