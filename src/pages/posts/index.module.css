@@ -3,8 +3,12 @@
     grid-template-columns: repeat(3, 0.3fr);
     grid-template-rows: repeat(2, 1fr);
     justify-content: center;
-    grid-gap: 12px;
     margin: 32px;
+}
+
+.button {
+    margin-top: 24px;
+    text-align: center;
 }
 
 @media screen and (max-width: 1068px) {
