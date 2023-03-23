@@ -9,16 +9,18 @@
 
 .titlePost h1{
     font-size: 32px;
+    font-weight: 600;
     font-family: 'Poppins', sans-serif;
     text-align: center;
 }
 
 .contentPost p{
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
     margin: 24px 32px;
     line-height: 2;
     text-align: justify;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -29,6 +31,7 @@
 
     .titlePost h1{
         line-height: 1.5;
+        font-size: 26px;
     }
 
     .contentPost p{
