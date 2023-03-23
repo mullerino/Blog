@@ -1,0 +1,52 @@
+.container{
+    min-height: 230px;
+    max-width: 215px;
+    margin: 32px;
+    padding: 32px;
+    border-radius: 8px;
+    background-color: rgba(233, 233, 240, 0.1);
+    cursor: pointer;
+}
+
+.container:hover{
+    background-color: rgba(209, 209, 219, 0.25);
+    transition: background-color 0.3s ease-in;
+}   
+
+.userImg{
+    width: 70px;
+    margin: auto;
+}
+
+.userImg img{
+    width: 100%;
+}
+
+.nameCity{
+    margin: 16px 0;
+    padding: 8px 0;
+}
+
+.nameCity h3{
+    font-size: 24px;
+    color: #616FD0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.nameCity span{
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.lastInfos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.answers{
+    font-weight: 600;
+    color: #616FD0;
+}
