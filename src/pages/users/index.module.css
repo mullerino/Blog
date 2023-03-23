@@ -1,0 +1,12 @@
+.cardUsers{
+    display: grid;
+    grid-template-columns: repeat(3, 0.3fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+    margin: 16px; 
+}
+
+.button{
+    text-align: center;
+    margin: 16px 0;
+}
