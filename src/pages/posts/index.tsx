@@ -16,7 +16,7 @@ const Posts = ()=>{
                 <PostCard/>
                 <PostCard/>
             </div>
-            <div>
+            <div className={styles.button}>
                 <Button/>
             </div>
         </section>
