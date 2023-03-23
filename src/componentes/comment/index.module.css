@@ -1,0 +1,53 @@
+.container{
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 24px 48px;
+}
+
+.userPhoto{
+   max-width: 80px;
+}
+
+.userPhoto img{
+    width: 100%;
+}
+
+.userComment{
+    margin: 2px 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+.userComment span:first-child{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.userComment span{
+    display: block;
+    padding: 6px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        align-items: center;
+    }
+
+    .userComment{
+        text-align: justify;
+        line-height: 1.2;
+    }
+}
+
+@media screen and (max-width: 528px) {
+    .container{
+        flex-direction: column;
+    }
+
+    .userComment span{
+        text-align: center;
+        line-height: 1.5;
+    }
+}
