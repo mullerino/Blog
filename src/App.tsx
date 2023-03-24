@@ -9,11 +9,12 @@ import DetailsUser from './pages/detailsUser'
 
 import { IPost } from './@types/post'
 import { useEffect, useState } from 'react'
+import { IComment } from './@types/comment'
 
 function App() {
-  
   const [posts,setPosts] = useState<IPost[]>([])
-
+  const [comments, setComments] = useState<IComment[]>([])
+  
   useEffect(()=>{
     axios.get('https://jsonplaceholder.typicode.com/posts')
     .then((response)=>{
@@ -24,6 +25,17 @@ function App() {
     })
   }, [])
 
+  const getCommentsOfPost = (id:number)=>{
+    useEffect(()=>{
+      axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+      .then((response)=>{
+          setComments(response.data)
+      })
+      .catch((error)=>{
+          console.log(error)
+      })
+  }, [])
+  }
 
   return (
     <Routes>
@@ -33,7 +45,7 @@ function App() {
         <Route 
         key={post.id} 
         path = {`/post/${post.id}`} 
-        element = {<DetailsPost body={post.body} title={post.title} id={post.id}/>}
+        element = {<DetailsPost body={post.body} title={post.title} id={post.id} getComments={getCommentsOfPost} comments = {comments}/>}
         />
       ))}
       <Route path='/user/1' element ={<DetailsUser/>}/>
