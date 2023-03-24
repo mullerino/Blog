@@ -53,10 +53,17 @@
     font-size: 14px;
     text-align: left;
     letter-spacing: 2px;
+    min-height: 60px;
+    line-height: 20px;
+}
+
+.titlePost h3{
+    display: inline-block;
 }
 
 .detailsPost{
     margin-left: 12px;
+    min-height: 30px;
 }
 
 .detailsPost a{
