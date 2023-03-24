@@ -1,14 +1,16 @@
+import { IComment } from '../../@types/comment'
 import styles from './index.module.css'
 
-const Comment = ()=>{
+
+const Comment = ({email, body} : IComment)=>{
     return (
         <div className={styles.container}>
             <div className={styles.userPhoto}>
                 <img src="/imgs/user.png" alt="Foto do usuário" />
             </div>
             <div className={styles.userComment}>
-                <span>Eliseo@gardner.biz</span>
-                <span>laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium</span>
+                <span>{email}</span>
+                <span>{body}</span>
             </div>
         </div>
     )
