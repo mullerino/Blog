@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { IPost } from "../../@types/post"
 import Button from "../../componentes/button"
 import Menu from "../../componentes/menu"
@@ -9,12 +10,21 @@ interface IPosts{
     posts: IPost[];
 }
 
+
 const Posts = ({ posts } : IPosts)=>{
+    const [filterPosts, setFilterPosts] = useState<string>('')
+    const [currentPosts, setCurrentPosts] = useState<IPost[]>([])
+
+    useEffect(()=>{
+        const newPosts = posts.filter((post)=> post.title.startsWith(filterPosts))
+        setCurrentPosts(newPosts)
+    }, [filterPosts])
+
     return (
         <section>
-            <Menu/>
+            <Menu filterPosts = {setFilterPosts} value = {filterPosts}/>
             <div className={styles.posts}>
-                {posts.map((post)=>(
+                {currentPosts.map((post)=>(
                     <PostCard key={post.id} id={post.id} body={post.body} title={post.title}/>
                 ))}
             </div>

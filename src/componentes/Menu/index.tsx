@@ -1,8 +1,19 @@
 import styles from './index.module.css'
 import { Note, Users, MagnifyingGlass } from 'phosphor-react'
 import { Link } from 'react-router-dom'
+import { IPost } from '../../@types/post';
 
-const Menu = ()=>{
+interface IMenu{
+    filterPosts: (arg:string)=>void;
+    value: string;
+}
+
+const Menu = ({filterPosts, value}:IMenu)=>{
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
+        filterPosts(e.target.value)
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.logo}>
@@ -26,7 +37,7 @@ const Menu = ()=>{
             </div>
             <div className={styles.searchItens}>
                 <MagnifyingGlass size={16} className={styles.searchIcon}/>
-                <input type="text" placeholder='Buscar' />
+                <input type="text" placeholder='Buscar' onChange={handleInputChange} value={value}/>
             </div>
         </div>
     )
