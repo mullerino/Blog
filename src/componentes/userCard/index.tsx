@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './index.module.css'
 
 interface IUserCard{
@@ -5,11 +6,13 @@ interface IUserCard{
     city: string;
     username: string;
     email: string
+    id: number;
 }
 
-const userCard = ( { name, city, email, username } : IUserCard )=>{
+const userCard = ( { name, city, email, username, id} : IUserCard )=>{
     return (
         <div className={styles.container}>
+            <Link to={`/user/${id}`} className={styles.link}>
                 <div className={styles.userImg}>
                     <img src="/imgs/user.png" alt="Foto do usuário" />
                 </div>
@@ -27,6 +30,7 @@ const userCard = ( { name, city, email, username } : IUserCard )=>{
                         <span className={styles.answers}> {email}</span>
                     </span>
                 </div>
+            </Link>
         </div>
     )
 }
