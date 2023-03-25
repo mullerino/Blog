@@ -42,7 +42,7 @@
 }
 
 .tagUser span{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 12px;
     color: rgb(205, 205, 205);
 }
@@ -72,9 +72,9 @@
 
 .detailsPost span{
     color: #616FD0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 16px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .detailsPost span:hover{
