@@ -7,19 +7,25 @@ import UserCard from "../../componentes/userCard"
 import styles from './index.module.css'
 
 interface IUsers {
-    users: IUser[];
+    filterItens?: (arg:string)=>void;
+    FilteredItens?: IUser[];
+    valueInput: string;   
 }
 
-const Users = ({ users }: IUsers)=>{
+const Users = ({ filterItens, FilteredItens, valueInput }: IUsers)=>{
     return (
         <section>
-            <Menu disableInput = {false}/>
+            <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false}/>
             <div className={styles.cardUsers}>
-                {users.map((user)=>(
-                    
-                        <UserCard key={user.id} id ={user.id} name = {user.name} city={user.address.city} username = {user.username} email={user.email}/>
-                    
-                    
+                {FilteredItens?.map((user)=>(
+                    <UserCard 
+                    key={user.id} 
+                    id ={user.id} 
+                    name = {user.name} 
+                    city={user.address.city} 
+                    username = {user.username} 
+                    email={user.email}
+                    />
                 ))}
             </div>
             <div className={styles.button}>

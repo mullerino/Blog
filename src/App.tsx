@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 
 import axios from 'axios' 
 
@@ -16,23 +16,25 @@ function App() {
   const [posts,setPosts] = useState<IPost[]>([])
   const [comments, setComments] = useState<IComment[]>([])
   const [users, setUsers] = useState<IUser[]>([])
+
+  const [filterCards, setFilterCards] = useState<string>('')
+  const [currentPosts, setCurrentPosts] = useState<IPost[]>([])
+  const [currentUsers, setCurrentUsers] = useState<IUser[]>([])
+
+  const currentLocation = useLocation()  
   
   useEffect(()=>{
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then((response)=>{
-      setPosts(response.data)
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
-
-    axios.get("https://jsonplaceholder.typicode.com/users")
-    .then((response)=>{
-      setUsers(response.data)
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
+    axios.all([
+      axios.get("https://jsonplaceholder.typicode.com/posts"),
+      axios.get("https://jsonplaceholder.typicode.com/users")
+    ]).then(axios.spread((postsResponse, usersResponse) => {
+      setPosts(postsResponse.data);
+      setCurrentPosts(postsResponse.data);
+      setCurrentUsers(usersResponse.data);
+      setUsers(usersResponse.data);
+    })).catch((error) => {
+      console.log(error);
+    });
   }, [])
 
   const getCommentsOfPost = (id:number)=>{
@@ -47,10 +49,32 @@ function App() {
   }, [])
   }
 
+  useEffect(()=>{
+    if(currentLocation.pathname === '/'){
+      const newPosts = posts.filter((post)=> post.title.startsWith(filterCards))
+      setCurrentPosts(newPosts)
+    }
+    else {
+      const filtedUsers = users.filter((user)=> user.name.startsWith(filterCards))
+      setCurrentUsers(filtedUsers)
+    }
+  }, [filterCards])
+
   return (
     <Routes>
-      <Route path="/" element = {<Posts posts={posts}/>}/>
-      <Route path="/users" element = {<Users users = {users}/>} />
+      <Route path="/" element = {
+      <Posts 
+        users = {users} 
+        filterItens={setFilterCards} 
+        FilteredItens={currentPosts} 
+        valueInput={filterCards}/>
+      }/>
+      <Route path="/users" element = {
+      <Users 
+        filterItens={setFilterCards} 
+        FilteredItens={currentUsers} 
+        valueInput={filterCards}/>
+      }/>
       {posts.map((post)=>(
         <Route 
         key={post.id} 
@@ -71,14 +95,14 @@ function App() {
         path={`/user/${user.id}`} 
         element = {
           <DetailsUser 
-          address={user.address} 
-          company={user.company}
-          email={user.email}
-          id={user.id}
-          name={user.name}
-          phone={user.phone}
-          username={user.username}
-          website={user.website}
+            address={user.address} 
+            company={user.company}
+            email={user.email}
+            id={user.id}
+            name={user.name}
+            phone={user.phone}
+            username={user.username}
+            website={user.website}
           />
         } 
         />

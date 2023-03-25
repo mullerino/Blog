@@ -5,26 +5,23 @@ import Menu from "../../componentes/menu"
 import PostCard from "../../componentes/postCard"
 
 import styles from './index.module.css'
+import { IUser } from "../../@types/users"
 
 interface IPosts{
-    posts: IPost[];
+    users: IUser[];
+    filterItens?: (arg:string)=>void;
+    FilteredItens?: IPost[];
+    valueInput: string;   
 }
 
-const Posts = ({ posts } : IPosts)=>{
-    const [filterPosts, setFilterPosts] = useState<string>('')
-    const [currentPosts, setCurrentPosts] = useState<IPost[]>([])
-
-    useEffect(()=>{
-        const newPosts = posts.filter((post)=> post.title.startsWith(filterPosts))
-        setCurrentPosts(newPosts)
-    }, [filterPosts])
+const Posts = ({ users, filterItens, FilteredItens, valueInput } : IPosts)=>{
 
     return (
         <section>
-            <Menu filterPosts = {setFilterPosts} value = {filterPosts} disableInput = {false}/>
+            <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false}/>
             <div className={styles.posts}>
-                {currentPosts.map((post)=>(
-                    <PostCard key={post.id} id={post.id} body={post.body} title={post.title}/>
+                {FilteredItens?.map((post)=>(
+                    <PostCard key={post.id} id={post.id} body={post.body} title={post.title} userId={post.userId} users={users}/>
                 ))}
             </div>
             <div className={styles.button}>

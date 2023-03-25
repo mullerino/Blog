@@ -3,11 +3,17 @@ import {Link} from 'react-router-dom'
 import { IPost } from "../../@types/post"
 
 import styles from "./index.module.css"
+import { IUser } from '../../@types/users'
 
 
-interface IPostCard extends IPost{}
+interface IPostCard extends IPost{
+    users: IUser[];
+}
 
-const PostCard = ({ id, title } : IPostCard)=>{
+const PostCard = ({ id, title, users, userId } : IPostCard)=>{
+
+    const userWhoPosted = users.filter((user)=> userId === user.id)
+    
     return (
         <main className={styles.container}>
             <div className={styles.imgPost}>
@@ -15,7 +21,7 @@ const PostCard = ({ id, title } : IPostCard)=>{
             </div>
             <div className={styles.contentPost}>
                 <div className={styles.tagUser}>
-                    <span>Bret</span>
+                    <span>{userWhoPosted.map((user)=> user.username)}</span>
                 </div>
                 <div className={styles.titlePost}>
                     <h3>{title}</h3>
