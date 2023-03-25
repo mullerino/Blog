@@ -2,7 +2,7 @@ import { IComment } from '../../@types/comment'
 import { IPost } from '../../@types/post'
 
 import Comment from '../../componentes/comment'
-import Menu from '../../componentes/Menu'
+import Menu from '../../componentes/menu'
 import Post from '../../componentes/post'
 
 import styles from './index.module.css'
