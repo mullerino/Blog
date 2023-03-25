@@ -42,7 +42,7 @@ const DetailsUser = ({ address, company, email,id, name, phone, username, websit
     ]
 
     return (
-        <section className={styles.container}>
+        <section>
             <Menu/>
             <div className={styles.content}>
                 <div className={styles.userPhoto}>
