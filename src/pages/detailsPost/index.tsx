@@ -7,20 +7,15 @@ import Post from '../../componentes/post'
 
 import styles from './index.module.css'
 
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 interface IDetailsPost extends IPost{
-    getComments: (id: number) => void
-    comments: IComment[]
+    getComments: (id: number) => void;
+    comments: IComment[];
 }
 
-const DetailsPost = ({ title, body, id, getComments, comments } : IDetailsPost)=>{
-    
-    useEffect(()=>{
-        getComments(id)
-    
-    }, [])
+const DetailsPost = ({ title, body, id, comments, getComments } : IDetailsPost)=>{
+
+    getComments(id)
        
     return (
         <section>

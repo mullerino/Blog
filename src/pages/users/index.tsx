@@ -1,20 +1,26 @@
+import { Link } from "react-router-dom"
+import { IUser } from "../../@types/users"
 import Button from "../../componentes/button"
 import Menu from "../../componentes/menu"
 import UserCard from "../../componentes/userCard"
 
 import styles from './index.module.css'
 
-const Users = ()=>{
+interface IUsers {
+    users: IUser[];
+}
+
+const Users = ({ users }: IUsers)=>{
     return (
         <section>
             <Menu/>
             <div className={styles.cardUsers}>
-                <UserCard/>
-                <UserCard/>
-                <UserCard/>
-                <UserCard/>
-                <UserCard/>
-                <UserCard/>
+                {users.map((user)=>(
+                    <Link to={`/user/${user.id}`} className={styles.link}>
+                        <UserCard name = {user.name} city={user.address.city} username = {user.username} email={user.email}/>
+                    </Link>
+                    
+                ))}
             </div>
             <div className={styles.button}>
                 <Button/>

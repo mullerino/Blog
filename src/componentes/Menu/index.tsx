@@ -6,14 +6,14 @@ const Menu = ()=>{
     return (
         <div className={styles.container}>
             <div className={styles.logo}>
-                <img src="../../../public/imgs/logo.png" alt="" />
+                <img src="/imgs/logo.png" alt="Logo da aplicação" />
             </div>
             <div>
                 <ul className={styles.menu}>
                     <li>
                         <Link to={'/'} className={styles.link}>
                             <Note size={12} style={{marginRight: '6px', display: 'inline-block'}}/>
-                            Post
+                            Posts
                         </Link>
                     </li>
                     <li>

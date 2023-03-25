@@ -6,6 +6,11 @@
     margin: 16px; 
 }
 
+.link{
+    text-decoration: none;
+    color: black;
+}
+
 .button{
     text-align: center;
     margin: 16px 0;

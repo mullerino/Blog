@@ -10,7 +10,6 @@ interface IPosts{
 }
 
 const Posts = ({ posts } : IPosts)=>{
-
     return (
         <section>
             <Menu/>

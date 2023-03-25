@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@types/css-modules": "^1.0.2",
+    "axios": "^1.3.4",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0",
     "yarn": "^1.22.19"
   },
   "devDependencies": {

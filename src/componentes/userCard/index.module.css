@@ -1,11 +1,12 @@
 .container{
     min-height: 230px;
-    max-width: 215px;
+    max-width: 240px;
     margin: 32px;
     padding: 32px;
     border-radius: 8px;
     background-color: rgba(233, 233, 240, 0.1);
     cursor: pointer;
+    text-align: center;
 }
 
 .container:hover{
@@ -28,7 +29,7 @@
 }
 
 .nameCity h3{
-    font-size: 24px;
+    font-size: 20px;
     color: #616FD0;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -44,7 +45,7 @@
     flex-direction: column;
     gap: 20px;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .answers{

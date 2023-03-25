@@ -61,19 +61,23 @@
     display: inline-block;
 }
 
+.link{
+    text-decoration: none;
+}
+
 .detailsPost{
     margin-left: 12px;
     min-height: 30px;
 }
 
-.detailsPost a{
+.detailsPost span{
     color: #616FD0;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
 }
 
-.detailsPost a:hover{
+.detailsPost span:hover{
     color: #919BDE;
     transition: color 300ms ease-in-out;
 }

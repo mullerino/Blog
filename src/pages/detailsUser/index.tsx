@@ -1,8 +1,46 @@
+import { IUser } from '../../@types/users'
 import InfoUser from '../../componentes/infoUser'
 import Menu from '../../componentes/menu'
 import styles from './index.module.css'
 
-const DetailsUser = ()=>{
+interface IDetailsUser extends IUser{}
+
+const DetailsUser = ({ address, company, email,id, name, phone, username, website } : IDetailsUser)=>{
+    const allInfos = [
+        {
+            infoRequest: "Username:",
+            infoAnswer: username
+        },
+        {
+            infoRequest: "Name:",
+            infoAnswer: name
+        },
+        {
+            infoRequest: "Email:",
+            infoAnswer: email
+        },
+        {
+            infoRequest: "City:",
+            infoAnswer: address.city
+        },
+        {
+            infoRequest: "Phone:",
+            infoAnswer: phone
+        },
+        {
+            infoRequest: "Company name:",
+            infoAnswer: company.name
+        },
+        {
+            infoRequest: "catchPhrase:",
+            infoAnswer: company.catchPhrase
+        },
+        {
+            infoRequest: "Website:",
+            infoAnswer: website
+        },
+    ]
+
     return (
         <section className={styles.container}>
             <Menu/>
@@ -11,13 +49,9 @@ const DetailsUser = ()=>{
                     <img src="/imgs/user.png" alt="Foto do usuário" />
                 </div>
                 <div className={styles.infos}>
-                    <InfoUser infoRequest='Username:' infoAnswer='Antonette'/>
-                    <InfoUser infoRequest='Email:' infoAnswer='Shanna@melissa.tv'/>
-                    <InfoUser infoRequest='Website:' infoAnswer='anastasia.net'/>
-                    <InfoUser infoRequest='Company name:' infoAnswer='Deckow-Crist'/>
-                    <InfoUser infoRequest='Name:' infoAnswer='Ervin Howell'/>
-                    <InfoUser infoRequest='Phone:' infoAnswer='010-692-6593 x09125'/>
-                    <InfoUser infoRequest='City:' infoAnswer='Wisokyburgh'/>
+                   {allInfos.map((item)=>(
+                        <InfoUser infoRequest={item.infoRequest} infoAnswer={item.infoAnswer} />
+                   ))}
                 </div>
             </div>
         </section>

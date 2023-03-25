@@ -5,7 +5,9 @@ import { IPost } from "../../@types/post"
 import styles from "./index.module.css"
 
 
-const PostCard = ({id, title, body } : IPost)=>{
+interface IPostCard extends IPost{}
+
+const PostCard = ({ id, title } : IPostCard)=>{
     return (
         <main className={styles.container}>
             <div className={styles.imgPost}>
@@ -19,7 +21,7 @@ const PostCard = ({id, title, body } : IPost)=>{
                     <h3>{title}</h3>
                 </div>
                 <div className={styles.detailsPost}>
-                    <Link to={`/post/${id}`}><a>Leia agora</a></Link>
+                    <Link to={`/post/${id}`} className={styles.link}><span>Leia agora</span></Link>
                 </div>
             </div>
         </main>
