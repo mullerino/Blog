@@ -1,6 +1,6 @@
 import { IUser } from '../../@types/users'
 import InfoUser from '../../componentes/infoUser'
-import Menu from '../../componentes/menu'
+import Menu from '../../componentes/Menu'
 import styles from './index.module.css'
 
 interface IDetailsUser extends IUser{}

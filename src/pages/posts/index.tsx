@@ -1,6 +1,6 @@
 import { IPost } from "../../@types/post"
 import Button from "../../componentes/button"
-import Menu from "../../componentes/menu"
+import Menu from "../../componentes/Menu"
 import PostCard from "../../componentes/postCard"
 
 import styles from './index.module.css'

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { IUser } from "../../@types/users"
 import Button from "../../componentes/button"
-import Menu from "../../componentes/menu"
+import Menu from "../../componentes/Menu"
 import UserCard from "../../componentes/userCard"
 
 import styles from './index.module.css'
