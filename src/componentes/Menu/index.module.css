@@ -2,7 +2,7 @@
     min-height: 80px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -40,6 +40,7 @@
 
 .searchItens {
     position: relative;
+    margin-right: 24px;
 }
 
 .searchItens input{

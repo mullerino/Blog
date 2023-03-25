@@ -10,7 +10,6 @@ interface IPosts{
     posts: IPost[];
 }
 
-
 const Posts = ({ posts } : IPosts)=>{
     const [filterPosts, setFilterPosts] = useState<string>('')
     const [currentPosts, setCurrentPosts] = useState<IPost[]>([])
@@ -22,7 +21,7 @@ const Posts = ({ posts } : IPosts)=>{
 
     return (
         <section>
-            <Menu filterPosts = {setFilterPosts} value = {filterPosts}/>
+            <Menu filterPosts = {setFilterPosts} value = {filterPosts} disableInput = {false}/>
             <div className={styles.posts}>
                 {currentPosts.map((post)=>(
                     <PostCard key={post.id} id={post.id} body={post.body} title={post.title}/>

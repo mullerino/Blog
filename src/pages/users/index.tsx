@@ -13,7 +13,7 @@ interface IUsers {
 const Users = ({ users }: IUsers)=>{
     return (
         <section>
-            <Menu/>
+            <Menu disableInput = {false}/>
             <div className={styles.cardUsers}>
                 {users.map((user)=>(
                     

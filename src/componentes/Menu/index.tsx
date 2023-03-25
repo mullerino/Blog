@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom'
 import { IPost } from '../../@types/post';
 
 interface IMenu{
-    filterPosts: (arg:string)=>void;
-    value: string;
+    filterPosts?: (arg:string)=>void;
+    value?: string;
+    disableInput?: boolean;
 }
 
-const Menu = ({filterPosts, value}:IMenu)=>{
+const Menu = ({filterPosts, value, disableInput = true}:IMenu)=>{
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
-        filterPosts(e.target.value)
+        filterPosts?.(e.target.value)
     }
 
     return (
@@ -37,7 +38,7 @@ const Menu = ({filterPosts, value}:IMenu)=>{
             </div>
             <div className={styles.searchItens}>
                 <MagnifyingGlass size={16} className={styles.searchIcon}/>
-                <input type="text" placeholder='Buscar' onChange={handleInputChange} value={value}/>
+                <input type="text" placeholder='Buscar' onChange={handleInputChange} value={value} disabled = {disableInput}/>
             </div>
         </div>
     )
