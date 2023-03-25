@@ -49,8 +49,8 @@ const DetailsUser = ({ address, company, email,id, name, phone, username, websit
                     <img src="/imgs/user.png" alt="Foto do usuário" />
                 </div>
                 <div className={styles.infos}>
-                   {allInfos.map((item)=>(
-                        <InfoUser infoRequest={item.infoRequest} infoAnswer={item.infoAnswer} />
+                   {allInfos.map((item,index)=>(
+                        <InfoUser key={index} infoRequest={item.infoRequest} infoAnswer={item.infoAnswer} />
                    ))}
                 </div>
             </div>

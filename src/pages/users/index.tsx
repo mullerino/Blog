@@ -16,7 +16,7 @@ const Users = ({ users }: IUsers)=>{
             <Menu/>
             <div className={styles.cardUsers}>
                 {users.map((user)=>(
-                    <Link to={`/user/${user.id}`} className={styles.link}>
+                    <Link to={`/user/${user.id}`} className={styles.link} key={user.id}>
                         <UserCard name = {user.name} city={user.address.city} username = {user.username} email={user.email}/>
                     </Link>
                     
