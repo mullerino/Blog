@@ -2,7 +2,7 @@
     min-height: 80px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -23,7 +23,9 @@
 
 .menu li{
     display: inline-block;
-    padding: 24px;
+    text-align: center;
+    padding: 24px 32px;
+    margin: 0 32px;
     color: aliceblue;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -35,12 +37,11 @@
 }
 
 .link:hover{
-    color: aqua;
+    color: #616FD0
 }
 
 .searchItens {
     position: relative;
-    margin-right: 24px;
 }
 
 .searchItens input{

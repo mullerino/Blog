@@ -20,10 +20,10 @@ const Menu = ({filterPosts, value, disableInput = true}:IMenu)=>{
             <div className={styles.logo}>
                 <img src="/imgs/logo.svg" alt="Logo da aplicação" />
             </div>
-            <div>
+            <div className={styles.menuContainer}>
                 <ul className={styles.menu}>
                     <li>
-                        <Link to={'/'} className={styles.link}>
+                        <Link to={'/'} className={`${styles.link} ${styles.active} `} >
                             <Note size={12} style={{marginRight: '6px', display: 'inline-block'}}/>
                             Posts
                         </Link>
