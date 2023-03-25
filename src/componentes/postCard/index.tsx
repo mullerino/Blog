@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom'
 
 import { IPost } from "../../@types/post"
+import { IUser } from '../../@types/users'
 
 import styles from "./index.module.css"
-import { IUser } from '../../@types/users'
 
 
 interface IPostCard extends IPost{

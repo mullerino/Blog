@@ -1,7 +1,6 @@
 import styles from './index.module.css'
 import { Note, Users, MagnifyingGlass } from 'phosphor-react'
 import { Link } from 'react-router-dom'
-import { IPost } from '../../@types/post';
 
 interface IMenu{
     filterPosts?: (arg:string)=>void;
