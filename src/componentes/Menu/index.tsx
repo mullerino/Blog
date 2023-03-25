@@ -6,7 +6,7 @@ const Menu = ()=>{
     return (
         <div className={styles.container}>
             <div className={styles.logo}>
-                <img src="/imgs/logo.png" alt="Logo da aplicação" />
+                <img src="/imgs/logo.svg" alt="Logo da aplicação" />
             </div>
             <div>
                 <ul className={styles.menu}>
