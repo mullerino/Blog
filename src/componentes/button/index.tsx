@@ -1,10 +1,15 @@
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
-const Button = ()=>{
+interface IButton{
+    textButton: string;
+    onClick?: ()=>void;
+}
+
+const Button = ({textButton, onClick}: IButton)=>{
     return (
         <>
-            <button className={styles.button} type='button'>
-                Carregar mais
+            <button className={styles.button} type='button' onClick={onClick}>
+                {textButton}
             </button>
         </>
     )
