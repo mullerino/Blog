@@ -6,7 +6,7 @@ import { IPost } from '../../@types/post'
 import Button from '../../componentes/button'
 
 import Comment from '../../componentes/comment'
-import Menu from '../../componentes/menu'
+import Menu from "../../componentes/menu"
 import Post from '../../componentes/post'
 
 import styles from './index.module.scss'

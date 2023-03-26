@@ -4,7 +4,7 @@ import { IUser } from '../../@types/users'
 
 import Button from '../../componentes/button'
 import InfoUser from '../../componentes/infoUser'
-import Menu from '../../componentes/menu'
+import Menu from "../../componentes/menu"
 
 import styles from './index.module.scss'
 
