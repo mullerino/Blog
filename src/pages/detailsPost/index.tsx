@@ -1,5 +1,9 @@
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { IComment } from '../../@types/comment'
 import { IPost } from '../../@types/post'
+import Button from '../../componentes/button'
 
 import Comment from '../../componentes/comment'
 import Menu from '../../componentes/menu'
@@ -14,11 +18,18 @@ interface IDetailsPost extends IPost{
 }
 
 const DetailsPost = ({ title, body, id, comments, getComments } : IDetailsPost)=>{
+    const navigateRoutes = useNavigate()
 
-    getComments(id)
+    const backRoute = ()=>{
+        navigateRoutes(-1)
+    }
+    
+    useEffect(()=>{
+        getComments(id)
+    }, [])
        
     return (
-        <section>
+        <section className={styles.container}>
             <Menu/>
             <div>
                 <Post body={body} title={title}/>
@@ -36,6 +47,9 @@ const DetailsPost = ({ title, body, id, comments, getComments } : IDetailsPost)=
                         postId={comment.postId}/>
                     ))}
                 </div>
+            <div className={styles.button}>
+                <Button textButton="Voltar" onClick = {backRoute}/>
+            </div>
                 
             </div>
         </section>
