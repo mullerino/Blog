@@ -67,6 +67,15 @@ $text-color-hover: #616FD0;
         top: 5px;
     }
 
+    @media screen and (max-width: 768px){
+        .menu{
+            li{
+                margin: 0 8px;
+                padding: 24px 16px;
+            }
+        }
+    }
+
     @media screen and (max-width: 520px) {
         flex-direction: column;
         gap: 0.3rem;
