@@ -1,24 +1,23 @@
+$margin: 16px;
+
 .cardUsers{
     display: grid;
     grid-template-columns: repeat(3, 0.3fr);
     grid-template-rows: repeat(2, 1fr);
     justify-content: center;
-    margin: 16px; 
-}
+    margin: $margin; 
 
-.button{
-    text-align: center;
-    margin: 16px 0;
-}
+    .button{
+        text-align: center;
+        margin: $margin 0;
+    }
 
-@media screen and (max-width: 842px) {
-    .cardUsers{
+    @media screen and (max-width: 842px) {
         grid-template-columns: repeat(2, 0.3fr);
     }
-}
-
-@media screen and (max-width: 520px) {
-    .cardUsers{
+    
+    @media screen and (max-width: 520px) {
         grid-template-columns: repeat(1, 0.3fr);
+     
     }
 }

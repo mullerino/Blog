@@ -1,7 +1,7 @@
 import { IUser } from '../../@types/users'
 import InfoUser from '../../componentes/infoUser'
 import Menu from '../../componentes/menu'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 interface IDetailsUser extends IUser{}
 

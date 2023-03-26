@@ -4,7 +4,7 @@ import Button from "../../componentes/button"
 import Menu from "../../componentes/menu"
 import UserCard from "../../componentes/userCard"
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 interface IUsers {
     filterItens?: (arg:string)=>void;

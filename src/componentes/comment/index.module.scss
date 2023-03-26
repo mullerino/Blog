@@ -1,0 +1,53 @@
+$font-texts: 'Poppins', sans-serif;
+$margin-container: 24px 48px;
+
+.container{
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: $margin-container;
+
+    .userPhoto{
+        max-width: 80px;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    .userComment{
+        margin: 2px 8px;
+        font-family: $font-texts;
+        font-size: 14px;
+
+        span:first-child{
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        span{
+            display: block;
+            padding: 6px 0;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        align-items: center;
+    
+        .userComment{
+            text-align: justify;
+            line-height: 1.2;
+        }
+    }
+
+    @media screen and (max-width: 528px) {
+        flex-direction: column;
+
+        .userComment span{
+            text-align: center;
+            line-height: 1.5;
+        }
+    }
+    
+}

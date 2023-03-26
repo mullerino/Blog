@@ -1,4 +1,4 @@
-import styles from './index.module.css'
+import styles from './index.module.scss'
 import { Note, Users, MagnifyingGlass } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 

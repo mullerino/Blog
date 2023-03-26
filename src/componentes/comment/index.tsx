@@ -1,5 +1,5 @@
 import { IComment } from '../../@types/comment'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 
 const Comment = ({email, body} : IComment)=>{

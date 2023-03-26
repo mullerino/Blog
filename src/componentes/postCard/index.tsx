@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { IPost } from "../../@types/post"
 import { IUser } from '../../@types/users'
 
-import styles from "./index.module.css"
+import styles from "./index.module.scss"
 
 
 interface IPostCard extends IPost{

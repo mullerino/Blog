@@ -5,7 +5,7 @@ import Comment from '../../componentes/comment'
 import Menu from '../../componentes/menu'
 import Post from '../../componentes/post'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 
 interface IDetailsPost extends IPost{

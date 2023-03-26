@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react"
 import { IPost } from "../../@types/post"
 import Button from "../../componentes/button"
 import Menu from "../../componentes/menu"
 import PostCard from "../../componentes/postCard"
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 import { IUser } from "../../@types/users"
 
 interface IPosts{

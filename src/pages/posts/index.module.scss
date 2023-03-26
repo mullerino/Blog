@@ -4,23 +4,20 @@
     grid-template-rows: repeat(2, 1fr);
     justify-content: center;
     margin: 32px;
-}
 
-.button {
-    margin-top: 24px;
-    text-align: center;
-}
+    .button {
+        margin-top: 24px;
+        text-align: center;
+    }
 
-@media screen and (max-width: 1068px) {
-    .posts{
+    @media screen and (max-width: 1068px) {
         grid-template-columns: repeat(2, 0.3fr);
         margin: auto;
         justify-content: center;
+        margin-left: 48px
     }
-}
-
-@media screen and (max-width: 768px) {
-    .posts{
+    
+    @media screen and (max-width: 768px) {
         grid-template-columns: repeat(1, 0.3fr);
         margin: auto;
         justify-content: center;
