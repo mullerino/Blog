@@ -1,7 +1,13 @@
+import { useNavigate } from 'react-router-dom'
+
 import { IUser } from '../../@types/users'
+
+import Button from '../../componentes/button'
 import InfoUser from '../../componentes/infoUser'
 import Menu from '../../componentes/menu'
+
 import styles from './index.module.scss'
+
 
 interface IDetailsUser extends IUser{}
 
@@ -17,8 +23,14 @@ const DetailsUser = ({ address, company, email,id, name, phone, username, websit
         { infoRequest: "Website:", infoAnswer: website, id: 8 },
     ]
 
+    const navigateRoutes = useNavigate()
+
+    const backRoute = ()=>{
+        navigateRoutes(-1)
+    }
+
     return (
-        <section>
+        <section className={styles.container}>
             <Menu />
             <div className={styles.content}>
                 <div className={styles.userPhoto}>
@@ -28,6 +40,9 @@ const DetailsUser = ({ address, company, email,id, name, phone, username, websit
                    {allInfos.map((item)=>(
                         <InfoUser key={item.id} infoRequest={item.infoRequest} infoAnswer={item.infoAnswer} />
                    ))}
+                </div>
+                <div className={styles.button} onClick={backRoute}>
+                    <Button textButton='Voltar'/>
                 </div>
             </div>
         </section>
