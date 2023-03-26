@@ -1,4 +1,6 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Routes, Route, useLocation} from 'react-router-dom'
+
 
 import axios from 'axios' 
 
@@ -8,9 +10,9 @@ import DetailsPost from './pages/detailsPost'
 import DetailsUser from './pages/detailsUser'
 
 import { IPost } from './@types/post'
-import { useEffect, useState } from 'react'
 import { IComment } from './@types/comment'
 import { IUser } from './@types/users'
+import { IQuantityItems } from './@types/clicks'
 
 function App() {
   const [posts,setPosts] = useState<IPost[]>([])
@@ -21,24 +23,25 @@ function App() {
   const [currentPosts, setCurrentPosts] = useState<IPost[]>([])
   const [currentUsers, setCurrentUsers] = useState<IUser[]>([])
 
-  const currentLocation = useLocation()  
-  
+  const [quantityItems, setQuantityItems] = useState<IQuantityItems>({itemsPerSection: 6, clicks:1})
+
+  const currentLocation = useLocation() 
+
   useEffect(()=>{
     axios.all([
       axios.get("https://jsonplaceholder.typicode.com/posts"),
       axios.get("https://jsonplaceholder.typicode.com/users")
     ]).then(axios.spread((postsResponse, usersResponse) => {
       setPosts(postsResponse.data);
+      setUsers(usersResponse.data);
       setCurrentPosts(postsResponse.data);
       setCurrentUsers(usersResponse.data);
-      setUsers(usersResponse.data);
     })).catch((error) => {
       console.log(error);
     });
   }, [])
 
   const getCommentsOfPost = (id:number)=>{
-    useEffect(()=>{
       axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
       .then((response)=>{
           setComments(response.data)
@@ -46,7 +49,6 @@ function App() {
       .catch((error)=>{
           console.log(error)
       })
-  }, [])
   }
 
   useEffect(()=>{
@@ -60,19 +62,28 @@ function App() {
     }
   }, [filterCards])
 
+  const handleQuantityClicks = ()=>{
+    setQuantityItems({
+      itemsPerSection: 6,
+      clicks: quantityItems.clicks+1
+    })
+  }
+
   return (
     <Routes>
       <Route path="/" element = {
       <Posts 
         users = {users} 
         filterItens={setFilterCards} 
-        FilteredItens={currentPosts} 
-        valueInput={filterCards}/>
+        filteredItens={currentPosts} 
+        valueInput={filterCards}
+        quantityClicks = {handleQuantityClicks}
+        quantityActions = {quantityItems}/>
       }/>
       <Route path="/users" element = {
       <Users 
         filterItens={setFilterCards} 
-        FilteredItens={currentUsers} 
+        filteredItens={currentUsers} 
         valueInput={filterCards}/>
       }/>
       {posts.map((post)=>(

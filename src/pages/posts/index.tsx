@@ -5,27 +5,34 @@ import PostCard from "../../componentes/postCard"
 
 import styles from './index.module.scss'
 import { IUser } from "../../@types/users"
+import { IQuantityItems } from "../../@types/clicks"
 
 interface IPosts{
     users: IUser[];
     filterItens?: (arg:string)=>void;
-    FilteredItens?: IPost[];
-    valueInput: string;   
+    filteredItens?: IPost[];
+    valueInput: string;  
+    quantityClicks: () => void;
+    quantityActions: IQuantityItems;
 }
 
-const Posts = ({ users, filterItens, FilteredItens, valueInput } : IPosts)=>{
+const Posts = ({ users, filterItens, filteredItens, valueInput, quantityClicks, quantityActions } : IPosts)=>{
+
+    const lastIndex = quantityActions.itemsPerSection * quantityActions.clicks 
+    const items = filteredItens?.slice(0,lastIndex)
 
     return (
-        <section>
+        <section className={styles.container}>
             <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false}/>
             <div className={styles.posts}>
-                {FilteredItens?.map((post)=>(
+                {items?.map((post)=>(
                     <PostCard key={post.id} id={post.id} body={post.body} title={post.title} userId={post.userId} users={users}/>
                 ))}
             </div>
+            {items?.length !== filteredItens?.length ? 
             <div className={styles.button}>
-                <Button/>
-            </div>
+                <Button textButton="Carregar mais" onClick = {quantityClicks}/>
+            </div> : ''}
         </section>
     )
 }
