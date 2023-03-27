@@ -19,7 +19,7 @@ const DetailsUser = ({ address, company, email,id, name, phone, username, websit
         { infoRequest: "City:", infoAnswer: address?.city, id: 4},
         { infoRequest: "Phone:", infoAnswer: phone, id: 5 },
         { infoRequest: "Company name:", infoAnswer: company?.name, id: 6 },
-        { infoRequest: "catchPhrase:", infoAnswer: company?.catchPhrase, id: 7 },
+        { infoRequest: "Catch Phrase:", infoAnswer: company?.catchPhrase, id: 7 },
         { infoRequest: "Website:", infoAnswer: website, id: 8 },
     ]
 

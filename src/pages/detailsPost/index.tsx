@@ -11,7 +11,6 @@ import Post from '../../componentes/post'
 
 import styles from './index.module.scss'
 
-
 interface IDetailsPost extends IPost{
     getComments: (id: number) => void;
     comments: IComment[];
@@ -19,7 +18,6 @@ interface IDetailsPost extends IPost{
 
 const DetailsPost = ({ title, body, id, comments, getComments } : IDetailsPost)=>{
     const navigateRoutes = useNavigate()
-
     const backRoute = ()=>{
         navigateRoutes(-1)
     }
@@ -44,13 +42,13 @@ const DetailsPost = ({ title, body, id, comments, getComments } : IDetailsPost)=
                         email={comment.email} 
                         id={comment.id} 
                         name={comment.name} 
-                        postId={comment.postId}/>
+                        postId={comment.postId}
+                        />
                     ))}
                 </div>
-            <div className={styles.button}>
-                <Button textButton="Voltar" onClick = {backRoute}/>
-            </div>
-                
+                <div className={styles.button}>
+                    <Button textButton="Voltar" onClick={backRoute}/>
+                </div>
             </div>
         </section>
     )
