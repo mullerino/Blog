@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, useLocation} from 'react-router-dom'
 
-
 import axios from 'axios' 
 
 import Posts from "./pages/posts"
@@ -13,6 +12,7 @@ import { IPost } from './@types/post'
 import { IComment } from './@types/comment'
 import { IUser } from './@types/users'
 import { IQuantityItems } from './@types/clicks'
+import { fetchCommentsOfPost, fetchPostAndUsers } from './axios/requests'
 
 function App() {
   const [posts,setPosts] = useState<IPost[]>([])
@@ -28,28 +28,8 @@ function App() {
   const currentLocation = useLocation() 
 
   useEffect(()=>{
-    axios.all([
-      axios.get("https://jsonplaceholder.typicode.com/posts"),
-      axios.get("https://jsonplaceholder.typicode.com/users")
-    ]).then(axios.spread((postsResponse, usersResponse) => {
-      setPosts(postsResponse.data);
-      setUsers(usersResponse.data);
-      setCurrentPosts(postsResponse.data);
-      setCurrentUsers(usersResponse.data);
-    })).catch((error) => {
-      console.log(error);
-    });
-  }, [])
-
-  const getCommentsOfPost = (id:number)=>{
-      axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
-      .then((response)=>{
-          setComments(response.data)
-      })
-      .catch((error)=>{
-          console.log(error)
-      })
-  }
+    fetchPostAndUsers({setPosts, setUsers, setCurrentPosts, setCurrentUsers})
+  },[])
 
   useEffect(()=>{
     if(currentLocation.pathname === '/'){
@@ -61,6 +41,10 @@ function App() {
       setCurrentUsers(filtedUsers)
     }
   }, [filterCards])
+
+  const fetchComments = (id:number)=>{
+    fetchCommentsOfPost(id, setComments)
+  }
 
   const handleQuantityClicks = ()=>{
     setQuantityItems({
@@ -95,7 +79,7 @@ function App() {
           body={post.body} 
           title={post.title} 
           id={post.id} 
-          getComments={getCommentsOfPost} 
+          getComments={fetchComments} 
           comments = {comments}
         />}
         />
