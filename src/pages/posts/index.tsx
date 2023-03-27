@@ -1,11 +1,13 @@
-import { IPost } from "../../@types/post"
 import Button from "../../componentes/button"
 import Menu from "../../componentes/menu"
 import PostCard from "../../componentes/postCard"
 
-import styles from './index.module.scss'
 import { IUser } from "../../@types/users"
+import { IPost } from "../../@types/post"
 import { IQuantityItems } from "../../@types/clicks"
+
+import styles from './index.module.scss'
+
 
 interface IPosts{
     users: IUser[];

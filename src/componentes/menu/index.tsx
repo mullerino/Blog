@@ -1,6 +1,8 @@
-import styles from './index.module.scss'
-import { Note, Users, MagnifyingGlass } from 'phosphor-react'
 import { Link } from 'react-router-dom'
+
+import { Note, Users, MagnifyingGlass } from 'phosphor-react'
+
+import styles from './index.module.scss'
 
 interface IMenu{
     filterPosts?: (arg:string)=>void;
