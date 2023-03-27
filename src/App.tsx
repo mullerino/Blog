@@ -68,7 +68,8 @@ function App() {
       <Users 
         filterItens={setFilterCards} 
         filteredItens={currentUsers} 
-        valueInput={filterCards}/>
+        valueInput={filterCards}
+        placeholderInput='Buscar pelo nome'/>
       }/>
       {posts.map((post)=>(
         <Route 
