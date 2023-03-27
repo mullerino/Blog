@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, useLocation} from 'react-router-dom'
 
-import axios from 'axios' 
-
 import Posts from "./pages/posts"
 import Users from './pages/users'
 import DetailsPost from './pages/detailsPost'
