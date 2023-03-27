@@ -82,4 +82,8 @@ $font-text: 'Poppins', sans-serif;
             gap: 5px;
         }
     }
+
+    @media screen and (max-width: 508px) {
+        background-color: $background-color-hover;
+    }
 }

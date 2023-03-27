@@ -96,7 +96,7 @@ $background-color-tag: #17192C;
     }
     
     @media screen and (max-width: 508px) {
-        width: 300px;
+        background-color: $background-color-hover;
         margin: 32px 4px;
     }
 }
