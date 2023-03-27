@@ -11,7 +11,7 @@ import styles from './index.module.scss'
 
 interface IPosts{
     users: IUser[];
-    filterItens?: (arg:string)=>void;
+    filterItens?: (arg:string) => void;
     filteredItens?: IPost[];
     valueInput: string;  
     quantityClicks: () => void;
@@ -25,7 +25,7 @@ const Posts = ({ users, filterItens, filteredItens, valueInput, quantityClicks, 
 
     return (
         <section className={styles.container}>
-            <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false}/>
+            <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false} placeholderInput = {'Buscar pelo título'}/>
             <div className={styles.posts}>
                 {items?.map((post)=>(
                     <PostCard key={post.id} id={post.id} body={post.body} title={post.title} userId={post.userId} users={users}/>

@@ -8,9 +8,10 @@ interface IMenu{
     filterPosts?: (arg:string)=>void;
     value?: string;
     disableInput?: boolean;
+    placeholderInput?: string
 }
 
-const Menu = ({filterPosts, value, disableInput = true}:IMenu)=>{
+const Menu = ({filterPosts, value, disableInput = true, placeholderInput}:IMenu)=>{
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         filterPosts?.(e.target.value)
@@ -41,7 +42,7 @@ const Menu = ({filterPosts, value, disableInput = true}:IMenu)=>{
             </div>
             <div className={styles.searchItens}>
                 <MagnifyingGlass size={16} className={styles.searchIcon}/>
-                <input type="text" placeholder='Buscar' onChange={handleInputChange} value={value} disabled = {disableInput}/>
+                <input type="text" placeholder={placeholderInput} onChange={handleInputChange} value={value} disabled = {disableInput}/>
             </div>
         </div>
     )

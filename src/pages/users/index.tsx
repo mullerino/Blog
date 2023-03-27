@@ -8,13 +8,14 @@ interface IUsers {
     filterItens?: (arg:string)=>void;
     filteredItens?: IUser[];
     valueInput: string; 
+    placeholderInput: string
 }
 
-const Users = ({ filterItens, filteredItens, valueInput }: IUsers)=>{
+const Users = ({ filterItens, filteredItens, valueInput, placeholderInput }: IUsers)=>{
 
     return (
         <section className={styles.container}>
-            <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false}/>
+            <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false} placeholderInput={'Buscar pelo nome'}/>
             <div className={styles.cardUsers}>
                 {filteredItens?.map((user)=>(
                     <UserCard 
