@@ -25,7 +25,7 @@ Visual studio code
 
 ### 🔧 Instalação
 
-Após clonar o projeto, acesse a pasta 'Blog' e execute o seguinte comando
+Após clonar o projeto, acesse a pasta 'Blog' e execute o seguinte comando no seu terminal
 
 ```
 yarn install
@@ -42,7 +42,7 @@ Com isso, a aplicação estará funcionando localmente na porta informada no ter
 
 ## 🛠️ Construído com
 
-Mencione as ferramentas que você usou para criar seu projeto
+Ferramentas utilizadas na construção do projeto
 
 * [ReactJs](https://react.dev) - Uma das bibliotecas de JS mais utilizada na atualidade
 * [Css Modules](https://github.com/css-modules/css-modules) - Forma eficiente de criar CSS
