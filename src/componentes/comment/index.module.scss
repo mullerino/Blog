@@ -10,14 +10,17 @@ $margin-container: 24px 48px;
 
     .userPhoto{
         max-width: 80px;
+        height: 100%;
 
         img{
             width: 100%;
+            height: 100%;
         }
     }
 
     .userComment{
         margin: 2px 8px;
+        width: 100%;
         font-family: $font-texts;
         font-size: 14px;
 
