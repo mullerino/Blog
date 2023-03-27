@@ -5,4 +5,8 @@
     span:first-child{
         font-weight: 600;
     }
+
+    @media screen and (max-width: 508px) {
+        font-size: 14px;
+    }
 }
