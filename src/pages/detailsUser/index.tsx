@@ -11,7 +11,7 @@ import styles from './index.module.scss'
 
 interface IDetailsUser extends IUser{}
 
-const DetailsUser = ({ address, company, email,id, name, phone, username, website } : IDetailsUser)=>{
+const DetailsUser = ({ address, company, email, name, phone, username, website } : IDetailsUser)=>{
     const allInfos = [
         { infoRequest: "Username:", infoAnswer: username, id: 1 },
         { infoRequest: "Name:", infoAnswer: name, id: 2 },
