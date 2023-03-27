@@ -17,20 +17,22 @@ const Menu = ({filterPosts, value, disableInput = true}:IMenu)=>{
     return (
         <div className={styles.container}>
             <div className={styles.logo}>
-                <img src="/imgs/logo.svg" alt="Logo da aplicação" />
+                <Link to={'/'}>
+                    <img src="/imgs/logo.svg" alt="Logo da aplicação" />
+                </Link>
             </div>
             <div className={styles.menuContainer}>
                 <ul className={styles.menu}>
                     <li>
-                        <Link to={'/'} className={`${styles.link} ${styles.active} `} >
-                            <Note size={12} style={{marginRight: '6px', display: 'inline-block'}}/>
+                        <Link to={'/'} className={styles.link} >
+                            <Note size={12} className={styles.icon}/>
                             Posts
                         </Link>
                     </li>
                     <li>
                         <Link to={'/users'} className={styles.link}>
-                            <Users size={12} style={{marginRight: '6px', display: 'inline-block'}}/>
-                            Users
+                            <Users size={12} className={styles.icon}/>
+                            Usuários
                         </Link>
                     </li>
                 </ul>
