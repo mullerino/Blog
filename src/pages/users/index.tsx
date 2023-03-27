@@ -15,7 +15,7 @@ const Users = ({ filterItens, filteredItens, valueInput, placeholderInput }: IUs
 
     return (
         <section className={styles.container}>
-            <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false} placeholderInput={'Buscar pelo nome'}/>
+            <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false} placeholderInput={placeholderInput}/>
             <div className={styles.cardUsers}>
                 {filteredItens?.map((user)=>(
                     <UserCard 
