@@ -8,6 +8,10 @@ Na página de usuários, o usuário poderá visualizar todos os usuários cadast
 
 O projeto tem como finalidade demonstrar a capacidade de desenvolvimento de uma aplicação front-end que interage com uma API Restful, além de mostrar a capacidade de criação de páginas dinâmicas e interativas que apresentem os dados da API de forma clara e organizada.
 
+Antes de iniciar o desenvolvimento do código, realizou-se a construção da interface no Figma, com o intuito de facilitar o desenvolvimento e criar uma interface mais limpa e precisa.
+
+Layout no figma: https://www.figma.com/file/ppeKqIwY181Wdv6y0avP1b/Blog?node-id=0%3A1&t=QDyuizrygK1mTemE-1
+
 ## 🚀 Começando
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
@@ -50,6 +54,7 @@ Ferramentas utilizadas na construção do projeto
 * [React-Router-DOM](https://reactrouter.com/en/main) - Biblioteca JavaScript de roteamento
 * [Axios](https://axios-http.com/ptbr/docs/intro) - Biblioteca JavaScript baseada em Promises
 * [Phosphor Icons](https://phosphoricons.com) - Biblioteca de ícones open source
+* [Figma](https://www.figma.com) - Plataforma de design colaborativo 
 
 
 ## ✒️ Autores
