@@ -39,10 +39,6 @@ function App() {
     }
   }, [filterCards])*/
 
-  const fetchComments = (id:number)=>{
-    fetchCommentsOfPost(id, setComments)
-  }
-
   const handleQuantityClicks = ()=>{
     setQuantityItems({
       itemsPerSection: 6,
