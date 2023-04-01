@@ -14,7 +14,7 @@ import { PostContext } from '../../context/postContext'
 import { fetchCommentsOfPost, fetchPosts } from '../../axios/requests'
 import { convertStringToNumber } from '../../utils/convertStringToNumber'
 
-const DetailsPost = ({})=>{
+const DetailsPost = ()=>{
     const { posts, setPosts, comments, setComments } = useContext(PostContext)
     const { id } = useParams()
     
