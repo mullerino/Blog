@@ -7,12 +7,10 @@ import styles from "./index.module.scss"
 
 
 interface IPostCard extends IPost{
-    users: IUser[];
+    userName: (id: number) => string[];
 }
 
-const PostCard = ({ id, title, users, userId } : IPostCard)=>{
-
-    const userWhoPosted = users.filter((user)=> userId === user.id)
+const PostCard = ({ id, title, userName , userId} : IPostCard)=>{
     
     return (
         <main className={styles.container}>
@@ -21,7 +19,7 @@ const PostCard = ({ id, title, users, userId } : IPostCard)=>{
             </div>
             <div className={styles.contentPost}>
                 <div className={styles.tagUser}>
-                    <span>{userWhoPosted.map((user)=> user.username)}</span>
+                    <span>{userName(userId)}</span>
                 </div>
                 <div className={styles.titlePost}>
                     <h3>{title}</h3>

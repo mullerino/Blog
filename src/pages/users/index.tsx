@@ -1,23 +1,31 @@
+import { useContext, useEffect } from "react";
 import { IUser } from "../../@types/users"
 import Menu from "../../componentes/menu"
 import UserCard from "../../componentes/userCard"
 
 import styles from './index.module.scss'
+import { PostContext } from "../../context/postContext";
+import { fetchUsers } from "../../axios/requests";
 
-interface IUsers {
+/*interface IUsers {
     filterItens?: (arg:string)=>void;
     filteredItens?: IUser[];
     valueInput: string; 
     placeholderInput: string
-}
+}*/
 
-const Users = ({ filterItens, filteredItens, valueInput, placeholderInput }: IUsers)=>{
+const Users = ()=>{
+    const {users, setUsers} = useContext(PostContext)
+
+    useEffect(()=>{
+        fetchUsers(setUsers)
+    }, [])
 
     return (
         <section className={styles.container}>
-            <Menu filterPosts = {filterItens} value = {valueInput} disableInput = {false} placeholderInput={placeholderInput}/>
+            <Menu disableInput={false} placeholderInput="Buscar pelo nome"/>
             <div className={styles.cardUsers}>
-                {filteredItens?.map((user)=>(
+                {users.map((user)=>(
                     <UserCard 
                     key={user.id} 
                     id ={user.id} 

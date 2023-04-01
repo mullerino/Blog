@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useContext, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { IComment } from '../../@types/comment'
 import { IPost } from '../../@types/post'
@@ -10,27 +10,34 @@ import Menu from "../../componentes/menu"
 import Post from '../../componentes/post'
 
 import styles from './index.module.scss'
+import { PostContext } from '../../context/postContext'
+import { fetchCommentsOfPost, fetchPosts } from '../../axios/requests'
+import { convertStringToNumber } from '../../utils/convertStringToNumber'
 
-interface IDetailsPost extends IPost{
-    getComments: (id: number) => void;
-    comments: IComment[];
-}
+const DetailsPost = ({})=>{
+    const { posts, setPosts, comments, setComments } = useContext(PostContext)
+    const { id } = useParams()
+    
+    const actualPost = posts.filter((post)=>post.id === convertStringToNumber(id))
 
-const DetailsPost = ({ title, body, id, comments, getComments } : IDetailsPost)=>{
+    useEffect(()=>{
+        fetchCommentsOfPost(convertStringToNumber(id), setComments);
+        fetchPosts(setPosts)
+    }, [])
+
     const navigateRoutes = useNavigate()
+
     const backRoute = ()=>{
         navigateRoutes(-1)
     }
-    
-    useEffect(()=>{
-        getComments(id)
-    }, [])
        
     return (
         <section className={styles.container}>
             <Menu/>
             <div>
-                <Post body={body} title={title}/>
+                {actualPost.map((post)=>(
+                    <Post key={post.id} body={post.body} title={post.title}/>
+                ))}
             </div>
             <div className={styles.coments}>
                 <h2>Comentários</h2>

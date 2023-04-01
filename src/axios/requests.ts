@@ -4,13 +4,13 @@ import { IUser } from '../@types/users'
 import { IComment } from '../@types/comment';
 
 interface IFetchData{
-    setPosts: React.Dispatch<React.SetStateAction<IPost[]>>;
-    setUsers: React.Dispatch<React.SetStateAction<IUser[]>>;
-    setCurrentPosts: React.Dispatch<React.SetStateAction<IPost[]>>;
-    setCurrentUsers: React.Dispatch<React.SetStateAction<IUser[]>>;
+    setPosts?: React.Dispatch<React.SetStateAction<IPost[]>>;
+    setUsers?: React.Dispatch<React.SetStateAction<IUser[]>>;
+    setCurrentPosts?: React.Dispatch<React.SetStateAction<IPost[]>>;
+    setCurrentUsers?: React.Dispatch<React.SetStateAction<IUser[]>>;
 }
 
-export const fetchPostAndUsers = ({setPosts, setUsers, setCurrentPosts, setCurrentUsers} : IFetchData)=>{
+/*export const fetchPostAndUsers = ({setPosts, setUsers, setCurrentPosts, setCurrentUsers} : IFetchData)=>{
     axios.all([
         axios.get("https://jsonplaceholder.typicode.com/posts"),
         axios.get("https://jsonplaceholder.typicode.com/users")
@@ -22,7 +22,7 @@ export const fetchPostAndUsers = ({setPosts, setUsers, setCurrentPosts, setCurre
       })).catch((error) => {
         console.log(error);
       });
-}
+}*/
 
 export const fetchCommentsOfPost = (id:number, setComments:  React.Dispatch<React.SetStateAction<IComment[]>>)=>{
     axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
@@ -32,4 +32,24 @@ export const fetchCommentsOfPost = (id:number, setComments:  React.Dispatch<Reac
     .catch((error)=>{
         console.log(error)
     })
+}
+
+export const fetchPosts = (setPosts : React.Dispatch<React.SetStateAction<IPost[]>> )=>{
+  axios.get('https://jsonplaceholder.typicode.com/posts')
+  .then((response)=>{
+    setPosts(response.data)
+  })  
+  .catch((error)=>{
+    console.log(error)
+  })
+}
+
+export const fetchUsers = (setUsers : React.Dispatch<React.SetStateAction<IUser[]>> )=>{
+  axios.get('https://jsonplaceholder.typicode.com/users')
+  .then((response)=>{
+    setUsers(response.data)
+  })  
+  .catch((error)=>{
+    console.log(error)
+  })
 }

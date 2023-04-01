@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { IUser } from '../../@types/users'
 
@@ -7,20 +7,37 @@ import InfoUser from '../../componentes/infoUser'
 import Menu from "../../componentes/menu"
 
 import styles from './index.module.scss'
+import { useContext, useEffect } from 'react'
+import { PostContext } from '../../context/postContext'
+import { fetchUsers } from '../../axios/requests'
+import { convertStringToNumber } from '../../utils/convertStringToNumber'
 
 
-interface IDetailsUser extends IUser{}
+const DetailsUser = ()=>{
+    const { users, setUsers} = useContext(PostContext)
+    const {id} = useParams()
 
-const DetailsUser = ({ address, company, email, name, phone, username, website } : IDetailsUser)=>{
+    useEffect(()=>{
+        fetchUsers(setUsers)
+    }, [])
+
+    const findUserSingle = ()=>{
+        const userId = convertStringToNumber(id)
+
+        return users.find((user)=>user.id === userId)
+    }
+
+    const userSingle = findUserSingle()
+
     const allInfos = [
-        { infoRequest: "Username:", infoAnswer: username, id: 1 },
-        { infoRequest: "Name:", infoAnswer: name, id: 2 },
-        { infoRequest: "Email:", infoAnswer: email, id: 3 },
-        { infoRequest: "City:", infoAnswer: address?.city, id: 4},
-        { infoRequest: "Phone:", infoAnswer: phone, id: 5 },
-        { infoRequest: "Company name:", infoAnswer: company?.name, id: 6 },
-        { infoRequest: "Catch Phrase:", infoAnswer: company?.catchPhrase, id: 7 },
-        { infoRequest: "Website:", infoAnswer: website, id: 8 },
+        { infoRequest: "Username:", infoAnswer: userSingle?.username, id: 1 },
+        { infoRequest: "Name:", infoAnswer: userSingle?.name, id: 2 },
+        { infoRequest: "Email:", infoAnswer: userSingle?.email, id: 3 },
+        { infoRequest: "City:", infoAnswer: userSingle?.address.city, id: 4},
+        { infoRequest: "Phone:", infoAnswer: userSingle?.phone, id: 5 },
+        { infoRequest: "Company name:", infoAnswer: userSingle?.company.name, id: 6 },
+        { infoRequest: "Catch Phrase:", infoAnswer: userSingle?.company.catchPhrase, id: 7 },
+        { infoRequest: "Website:", infoAnswer: userSingle?.website, id: 8 },
     ]
 
     const navigateRoutes = useNavigate()
